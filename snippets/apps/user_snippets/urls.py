@@ -7,6 +7,7 @@ from apps.user_snippets import viewsets, views
 snippet_api_router = DefaultRouter()
 snippet_api_router.register(r'snippets', viewsets.SnippetViewSet, basename='snippets')
 snippet_api_router.register(r'tags', viewsets.TagViewSet, basename='tags')
+snippet_api_router.register(r'users', viewsets.UserViewSet, basename='users')
 
 urlpatterns = snippet_api_router.urls + [
     path('auth/', obtain_auth_token, name='api_token_auth'),
