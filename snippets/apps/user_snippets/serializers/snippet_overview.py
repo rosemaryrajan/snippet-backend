@@ -1,7 +1,8 @@
 from rest_framework import serializers
 
-from apps.user_snippets.models import Snippet
+from apps.user_snippets.serializers.snippets import SnippetListWithLinkSerializer
 
 
 class SnippetOverViewSerializer(serializers.Serializer):
-   pass
+    count = serializers.IntegerField()
+    snippets = SnippetListWithLinkSerializer(many=True)

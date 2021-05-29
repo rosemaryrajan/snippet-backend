@@ -8,6 +8,15 @@ class SnippetDEleteSerializer(serializers.Serializer):
     snippet_list = serializers.ListField(child=serializers.IntegerField())
 
 
+class SnippetListWithLinkSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Snippet
+        fields = ('id', 'title', 'snippet', 'tags', 'created_on', 'link')
+
+    tags = TagSerializer(many=True)
+    link = serializers.HyperlinkedIdentityField(view_name='snippets-detail')
+
+
 class SnippetListSerializer(serializers.ModelSerializer):
     class Meta:
         model = Snippet

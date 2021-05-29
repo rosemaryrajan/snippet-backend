@@ -11,5 +11,5 @@ snippet_api_router.register(r'tags', viewsets.TagViewSet, basename='tags')
 urlpatterns = snippet_api_router.urls + [
     path('auth/', obtain_auth_token, name='api_token_auth'),
     path('bulk-delete/', views.BulkSnippetDeleteView.as_view(), name='bulk-delete'),
-    # path('snippet-overview/', views.SnippetOverView.as_view(), name='snippet-overview'),
+    path('snippet-overview/', views.SnippetOverView.as_view(), name='snippet-overview'),
 ]
